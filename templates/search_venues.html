@@ -1,0 +1,15 @@
+
+{% block content %}
+
+    <center>
+<h1>Search Results</h1>
+
+<ul>
+  {% for song in object_list %}
+    <li>
+      {{ song.title }}, {{ song.artist }}
+    </li>
+  {% endfor %}
+</ul>
+    </center>
+{% endblock %}

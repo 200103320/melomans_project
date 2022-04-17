@@ -1,0 +1,113 @@
+{% load static %}
+{% include "header.html" %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% block content %}
+    <style type="text/css">
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  margin-top: 100px;
+  }
+#custom-button {
+  color: white;
+  background-color: #009578;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#custom-button:hover {
+  background-color: #00b28f;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
+}
+
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .h3{
+    text-align: center;
+  }
+
+</style>
+
+    <form class="form-signin" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+{#        <input type="text" name="title" id="inputTitle" class="form-control" placeholder="Title" required>#}
+{#        <input type="text" name="artist" id="inputArtist" class="form-control" placeholder="Artist" required>#}
+{#        <input type="file" id="real-file" hidden="hidden" />#}
+{#        <button type="button" id="custom-button" style="height: 40px; width: 140px;">Choose an image</button>#}
+{#        <span id="custom-text">No file chosen, yet.</span>#}
+{#        <input type="file" id="real-file" hidden="hidden" />#}
+{#        <button type="button" id="custom-button" style="height: 40px; width: 140px; margin-top: 10px; margin-bottom: 10px">Choose a song</button>#}
+{#        <span id="custom-text">No file chosen, yet.</span>#}
+{##}
+{#        <button type="button" class="btn btn-outline-dark" id="custom_button">Search</button>#}
+{#        <input type="text" name="duration" id="inputDuration" class="form-control" placeholder="Duration" required>#}
+        {% for field in audio_form %}
+            <p>
+                {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </p>
+        {% endfor %}
+        {% if audio_form.non_field_errors %}
+            <div style="color: red">
+            <p>{{audio_form.non_field_errors}}</p>
+            </div>
+        {% endif %}
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-left: 100px">Upload</button>
+    </form>
+
+    <script>
+        const realFileBtn = document.getElementById("real-file");
+const customBtn = document.getElementById("custom-button");
+const customTxt = document.getElementById("custom-text");
+
+customBtn.addEventListener("click", function() {
+  realFileBtn.click();
+});
+
+realFileBtn.addEventListener("change", function() {
+  if (realFileBtn.value) {
+    customTxt.innerHTML = realFileBtn.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+  } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+  }
+});
+
+    </script>
+{% endblock %}
+{% include "footer.html" %}

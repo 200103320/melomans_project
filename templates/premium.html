@@ -1,0 +1,105 @@
+{% load static %}
+{% include "header.html" %}
+        <div class="premium-head">
+            <div class="container">
+                <h1>Switch to premium. Be happy.</h1>
+                <h2 class="title-2">Premium's sound is incredible. Enjoy ad-free music on all your devices.*</h2>
+                <a class="black_btn" href="#plans">VIEW PLANS</a>
+                <p><small><a href="">*Terms and conditions</a> apply.</small></p>
+            </div>
+        </div>
+
+        <div class="why-premium">
+            <div class="container">
+                <h2 class="title-1">Why should you upgrade to Premium?</h2>
+            </div>
+            <div class="container why-cards">
+                <why-card image="{% static 'img/benefit_1.png' %}"
+                          title="Download music."
+                          text="Listen wherever you want.">
+                </why-card>
+                <why-card image="{% static 'img/benefit_2.png' %}"
+                          title="No ad interruptions."
+                          text="Enjoy non-stop music.">
+                </why-card>
+                <why-card image="{% static 'img/benefit_3.png' %}"
+                          title="Play any song you want."
+                          text="Even on your cell phone.">
+                </why-card>
+                <why-card image="{% static 'img/benefit_4.png' %}"
+                          title="Unlimited skip songs."
+                          text="Just hit the next button.">
+                </why-card>
+            </div>
+        </div>
+        
+        <div id="plans" class="premium-plans">
+            <div class="container plans-text">
+                <h2>Choose your premium</h2>
+                <p>You can listen to Spotify wherever you want, on any device you want.</p>
+            </div>
+            <div class="container plans-container">
+                <pay-plan prepay="Prepaid plans available"
+                          name="Individual"
+                          price="$4.99/month"
+                          account="1 account"
+                          list-1="Listen to their music without ads"
+                          list-2="Play anywhere and enjoy incredible sound"
+                          list-3="Play whenever you want"
+                          list-4="Pay up front or sign up"
+                          btntext="GET STARTED"
+                          smalltesxt="*Terms and conditions apply."
+                          active="false">
+                </pay-plan>
+                <pay-plan prepay=""
+                          name="Duo"
+                          price="$6.49/month"
+                          account="2 accounts"
+                          list-1="2 Premium accounts for couples living under the same roof"
+                          list-2="Duo Mix: A playlist for two, regularly updated with music the two of you will enjoy"
+                          list-3="Uninterrupted music listening, offline playback, anytime playback"
+                          list-4=""
+                          btntext="GET STARTED"
+                          smalltesxt="*Terms and conditions apply."
+                          active="false">
+                </pay-plan>
+                <pay-plan prepay=""
+                          name="Family"
+                          price="$7.99/month"
+                          account="up to 6 accounts"
+                          list-1="6 separate Premium accounts for family members living under the same roof"
+                          list-2="Family Mix: A playlist for your family, regularly updated with music for you all to enjoy"
+                          list-3="Block uncensored music"
+                          list-4="Uninterrupted music listening, anytime playback"
+                          btntext="GET STARTED"
+                          smalltesxt="*Terms and conditions apply. For families residing at the same address."
+                          active="false">
+                </pay-plan>
+                <pay-plan prepay=""
+                          name="Student"
+                          price="$2.49/month"
+                          account="1 account"
+                          list-1="Special discount for university students who can benefit"
+                          list-2="Listen to their music without ads"
+                          list-3="Play anywhere, even listen offline"
+                          list-4="Play whenever you want"
+                          btntext="GET STARTED"
+                          smalltesxt="*Terms and conditions apply."
+                          active="false">
+                </pay-plan>
+            </div>
+        </div>
+        {% include "footer.html" %}
+        <script>
+            //change header background color
+            window.onscroll = function() {scrollFunction()};
+            document.querySelector("header").style.backgroundColor = "transparent";
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.querySelector("header").style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+                }else {
+                    document.querySelector("header").style.backgroundColor = "transparent";
+                }
+            }
+        </script>

@@ -1,0 +1,50 @@
+{% load static %}
+{% include "header.html" %}
+		<!--Download-->
+		<div class="download">
+			<div class="container">
+				<img src="{% static 'img/laptop.webp' %}" alt="">
+				<h1 class="title-1">Download Spotify</h1>
+				<p>Play millions of songs on your device.</p>
+				<a class="black_btn" href="#">DOWNLOAD</a>
+			</div>
+		</div>
+		<!--Download-->
+
+		<!--Phone & Tablet-->
+		<div class="phoneNtablet">
+			<div class="container">
+				<h3 class="title-1">Bring your music to mobile and tablet too.</h3>
+				<p>It's free, easy and fun to listen to on your phone or tablet.</p>
+				<div class="storebox">
+					<a href=""><img src="{% static 'img/appstore.webp' %}" alt=""></a>
+					<a href=""><img src="{% static 'img/googleplay.webp' %}" alt=""></a>
+					<a href=""><img src="{% static 'img/microsoft.webp' %}" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<!--Phone & Tablet-->
+
+		<!--Everywhere-->
+		<div class="Everywhere">
+			<div class="container">
+				<img src="{% static 'img/alldevices.svg' %}" alt="">
+				<h3 class="title-1">Listen anywhere with a single account.</h3>
+				<ul class="platform_name">
+					<li>MOBILE PHONE</li>
+					<li>COMPUTER</li>
+					<li>TABLET</li>
+					<li>VEHICLE</li>
+				</ul>
+				<ul class="platform_link">
+					<li><a href="">PLAYSTATION®</a></li>
+					<li><a href="">XBOX</a></li>
+					<li><a href="">TV</a></li>
+					<li><a href="">SPEAKER</a></li>
+					<li><a href="">WEB PLAYER</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--Everywhere-->
+{% include "footer.html" %}
+
